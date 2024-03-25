@@ -1,0 +1,315 @@
+*{
+  font-family:'Sofia Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+/* Définie la couleurs de fond des différents conteneurs
+ainsi que la couleur d'écriture (blanche) */
+header {
+background-color: black;
+  color : white;
+  font-family: "Gill Sans", sans-serif;
+}
+nav{
+  background-color: black;
+  backdrop-filter: blur(2px) brightness(80%);
+}
+main {
+background-color: black;
+  color : white;
+}
+
+/* Reprend le code du footer de footer.css avec quelques ajustements*/
+footer {
+  color: white;
+  background-color: black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0.5px;
+  border-style: solid;
+  border-color: white;
+  padding: 0px;
+  grid-area: footer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: linear-gradient(20deg, #000000, #3a3a52);
+}
+
+footer div h2 {
+  position: relative;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  top: 5%;
+}
+
+footer a,
+footer .contacter p {
+  color: #f7f2f3;
+  text-decoration: None;
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Si il y a un problème avec un conteneur,
+il va alors s'afficher avec un fond rouge*/
+.conteneur {
+background-color: red;
+}
+
+
+nav ul{
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li{
+    height: 40px;
+}
+
+nav ul li a {
+	border: 2px solid black;
+    display:flex;
+    height: inherit;
+    padding: 0.5rem;
+    text-decoration: none;
+    align-items:center;
+  
+}
+
+nav a.active {
+    background-color:#ffffff00;
+    border : 4px rgb(255 255 255 / 38%) solid;
+    border-radius: 10px;
+    color: white;
+    transition-property: background-color;
+    transition-duration:0.2s;
+    font-size:20px;
+    justify-content:center;
+    text-align:center;
+}
+
+nav a.active:hover{
+  background-color:#ffffff35;
+}
+
+
+/* Définit l'affichage téléphone : */
+.conteneur{
+    height: 100vh;/*Afin d'étirer la balise sur l'ensemble du viewport: vh (Viewport Height)*/
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 100px min-content auto 200px;
+    grid-template-areas: "entete entete entete"/*Définition des éléments sur la grille*/
+                         "menu menu menu"
+                         "contenu contenu contenu"
+                         "pied pied pied";
+}
+
+/* Définit le nom de chacun des éléments placés dans la grille 
+grace à grid-template-areas */
+header{
+    grid-area: entete;
+}
+nav{
+    grid-area: menu;
+}
+
+main{
+    grid-area: contenu;
+    justify-content: center;
+    background-size: cover; /* La taille de l'image s'ajuste pour couvrir l'ensemble du bloc */
+    background-position-x: -900px;
+}
+
+main > p{
+      width: 65%;
+      height: auto;
+      padding: .5em;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    border-radius: 25px;
+  backdrop-filter: blur(15px) brightness(80%);
+  }
+
+main > ul{
+      width: 19%;
+      height: auto;
+      padding: 1em;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    border-radius: 25px;
+  backdrop-filter: blur(15px) brightness(80%);
+  }
+
+footer{
+    grid-area: pied;
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* Affichage pour tablette :
+    Le style dans ce media-query va être appliqué 
+    EN PLUS du style CSS ci-dessus (pour téléphone).
+    */
+    .conteneur {
+        grid-template-areas: "entete entete entete"/*Détermination de la position des éléments sur la grille*/
+                         "menu menu menu"
+                         "contenu contenu contenu"
+                         "pied pied pied";
+  }
+  
+  nav ul li{
+      width: 25%;
+      font-size: 80%;
+  } 
+  /* Positionne l'image de fond au centre */
+  main{
+    background-position: center;
+  }
+  main > p{
+      width: 40%;
+      height: auto;
+      padding: .5em;
+    margin-left: 5%;
+    margin-bottom: 5%;
+  }
+  
+  /* Augmente la largeur d'un bloc de texte sur deux*/
+  main > p:nth-child(even) {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px){ 
+    /*  Affichage pour ordinateur
+    Le style dans ce media-query va être appliqué 
+    EN PLUS du style CSS pour téléphone et celui pour tablette
+    puisque une largeur supérieure à 768px est aussi supérieure à 600px.
+    */
+    .conteneur {
+        grid-template-areas: "entete entete entete"
+                         "menu menu menu"
+                         "contenu contenu contenu"
+                         "pied pied pied";
+    }
+    main, .aside1, .aside2{
+        height: 120%;
+    }
+    .aside1 img{
+    width: 100%;
+    height: auto;
+  }
+  .contacter > h2, .legal > h2{
+    font-size: 130%;
+  }
+  ul > li{
+    font-size:120%;
+  }
+}
+
+
+center{
+  font-size:60px;
+   font-family:'Sofia Sans', sans-serif;
+}
+
+#css {
+  color: yellow;
+  font-family: "Odibee Sans", cursive;
+}
+
+.carousel-wrapper {
+  height: 350px;
+
+  position: relative;
+  width: 600px;
+  display: block;
+  margin: 50px auto;
+  border: 0px solid;
+  border-radius: 15px;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 50px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  border-radius: 30px;
+}
+.arrow {
+  border: solid;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 12px;
+}
+.arrow-prev {
+  left: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+}
+.arrow-next {
+  right: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+[id^="item"] {
+  display: none;
+}
+.item-1 {
+  z-index: 2;
+  opacity: 1;
+  background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/wallpaperbetter.com_1366x768.jpg?v=1702983930075");
+  background-size: cover;
+}
+.item-2 {
+  background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/502952.jpg?v=1702983935308");
+  background-size: cover;
+}
+.item-3 {
+  background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/1342695.png?v=1702983940530");
+  background-size: cover;
+}
+.item-4 {
+  background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/878584.jpg?v=1702983946520");
+  background-size: cover;
+}
+
+
+*:target ~ .item-1 {
+  opacity: 0;
+}
+#item-1:target ~ .item-1 {
+  opacity: 1;
+}
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3,
+#item-4:target ~ .item-4 {
+  z-index: 4;
+  opacity: 1;
+}
+
+#item-4:target ~ .item-4 {
+  z-index: 5;
+  opacity: 1;
+}
+
