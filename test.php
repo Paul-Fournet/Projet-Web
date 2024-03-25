@@ -30,6 +30,7 @@
   echo "<li>-->On devrait utiliser les flexbox</li>";
   echo "</ul>";
 
+  echo "TEST";
 
   for($i=0;$i<20;$i+=1){
     echo "<br>";
