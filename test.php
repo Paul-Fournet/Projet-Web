@@ -18,6 +18,9 @@
 
 <?php
     echo "bonjour";
+    
+
+    /*Bonjour test */
 ?>
 
 
