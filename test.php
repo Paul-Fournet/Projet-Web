@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+<?php
+    for($i=0;$i<10;$i+=1){
+        if($1%2===0){
+            echo '<p style="color:red;">'.$i.'</p>';
+        }
+        else{
+            echo '<p style="color:blue;">'.$i.'</p>';
+        }
+    }
+?>
+
+
 </body>
 </html>
