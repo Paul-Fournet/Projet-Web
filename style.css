@@ -536,7 +536,7 @@ a .original-text:hover {
   }
 }
 
-/ {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
