@@ -62,7 +62,7 @@ Bien que Saturne ne soit pas une planète propice à la vie humaine en raison de
           <ul>
             <li><p>E-mail : exemple@gmail.com</p></li>
             <li><p>Téléphone : 06 54 32 10 12</p></li>
-            <li><a href="formulaire.html">Formulaire d'inscription</a></li>
+          
           </ul>
         </div>
         <div class="legal">
