@@ -14,7 +14,7 @@ session_start();
     
 <?php
 if($_SESSION['connected']===false){
-    echo 'Il faut être connecté pour pouvoir ajouter des commentaires';
+    echo 'Il faut être <a href="formulaire.php" style="text-decoration:underline;">connecté</a> pour pouvoir ajouter des commentaires';
 }
 ?>
 
