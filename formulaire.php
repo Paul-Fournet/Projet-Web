@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+//L'utilisateur n'est pas connecté
+$_SESSION['connected']=false;
 ?>
 
 <!DOCTYPE html>
@@ -14,10 +17,23 @@ session_start();
 </head>
 
 <body>
+    <form method="post" action="formulaire.php">
+        <button type="button" class="boutonretour" value="Retour" name="retour">Retour</button>
+    </form>
+    
+    <?php
+        if(isset($_POST['retour'])){
+            header('Location:indx.php');
+        }
+    ?>
 
-    <button class="boutonretour" href="index.html">
-        Retour
-    </button>
+    </input>
+
+    <?php
+    if(isset($_POST['retour'])){
+        header("Location:index.html");
+    }
+    ?>
 
     <div class="divform">
 
@@ -47,7 +63,9 @@ session_start();
 
             //Si l'utilisateur est un client
             if($_SESSION['id']===$idclient && $_SESSION['mdp']===$mdpclient){
-                $_SESSION['client']='client';
+                $_SESSION['connected']=true;
+                $_SESSION['user']='client';
+                
 
                 //Redirection vers le menu
                 header("Location:index.php");
@@ -55,6 +73,7 @@ session_start();
 
             //Si l'utilisateur est un admin
             elseif($_SESSION['id']===$idadmin && $_SESSION['mdp']===$mdpadmin){
+                $_SESSION['connected']=true;
                 $_SESSION['user']='admin';
 
                 //Redirection vers le menu

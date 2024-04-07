@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr" id="menuscroll">
   <!--Bouton de scroll vers le menu-->
@@ -37,9 +41,23 @@
         <li>
           <a href="">Contacter</a>
         </li>
+
+        <?php
+        if(!isset($_SESSION['connected'])){
+
+        }
+        elseif($_SESSION['connected']===true){
+          echo '<li><a href="deconnexion.php">Déconnexion</a></li>';
+        }
+        else{
+        ?>
         <li>
           <a href="formulaire.php">Connexion</a>
         </li>
+        <?php
+        }
+        ?>
+
       </ul>
     </nav>
     <label for="nav_check" class="hamburger">
@@ -276,8 +294,20 @@
       <ul>
         <li><p>E-mail : contact@planet-discovery.com</p></li>
         <li><p>Téléphone : 06 54 32 10 12</p></li>
-        <li><a href="formulaire.html">Formulaire d'inscription</a></li>
-        <li><a href="#">Questionnaire de satisfaction</a></li>
+
+        <?php
+          if($_SESSION['user']==='client'){
+        ?>
+        <li><a href="pagereportclient.php">Un problème ? / Une suggestion ?</a></li>
+        <?php
+          }
+          
+          elseif($_SESSION['user']==='admin'){
+        ?>
+        <li><a href="pagereportadmin.php">Reports de bugs</a></li>
+        <?php
+          }
+        ?>
       </ul>
     </div>
     <div class="legal">
