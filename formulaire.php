@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,13 +15,12 @@
 
 <body>
 
-    <div class="boutonretour">
-        <a href="index.html">
-            Retour à l'accueil
-        </a>
-    </div>
+    <button class="boutonretour" href="index.html">
+        Retour
+    </button>
 
     <div class="divform">
+
         
         
         <form class="formulaire" method="post" action="formulaire.php">
@@ -30,18 +33,45 @@
             <input type="submit" name="submit">
     
         </form>
-        
-<?php
+        <?php
 
+        $idadmin='admin';
+        $mdpadmin='admin123';
 
-if(isset($_POST['submit'])){
-    echo $_POST['mdp'];
-}
+        $idclient='client';
+        $mdpclient='client123';
+
+        if(isset($_POST['submit'])){
+            $_SESSION['id']=$_POST['id'];
+            $_SESSION['mdp']=$_POST['mdp'];
+
+            //Si l'utilisateur est un client
+            if($_SESSION['id']===$idclient && $_SESSION['mdp']===$mdpclient){
+                $_SESSION['client']='client';
+
+                //Redirection vers le menu
+                header("Location:index.php");
+            }
+
+            //Si l'utilisateur est un admin
+            elseif($_SESSION['id']===$idadmin && $_SESSION['mdp']===$mdpadmin){
+                $_SESSION['user']='admin';
+
+                //Redirection vers le menu
+                header("Location:index.php");
+            }
+
+            else{
+                echo '<p style="color:red;">Identifiant/Mot de passe incorrect</p>';
+            }
+
+        }
 
 
 
 
 ?>
+
     </div>
 
 
