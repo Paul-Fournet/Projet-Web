@@ -19,12 +19,22 @@ if($_SESSION['connected']===false){
 ?>
 
 <h2>Assistance</h2>
+<br>
 
+<p>Vous souhaitez poser une question ou juste suggérer une modification ?
+<br>Pas de problème, vous pouvez parler à un expert en remplissant le questionnaire ci-dessous :</p>
+<br>
+<form method="post" action="pagereportclient.php">
+Nom : <br><input type="text" name="nom" placeholder="Votre nom"></input><br><br>
+Prénom : <br><input type="text" name="prénom" placeholder="Votre prénom"></input><br><br>
+Type de requête : <br>
+Message :<br><input type="text" placeholder="500 caractères maximum" name="message"></input>
+<br><br>
+<input type="submit" name="submit"></input>
+
+
+</form>
 
 </body>
 
-
-<?php
-require("indexparts/footer.php");
-?>
 </html>

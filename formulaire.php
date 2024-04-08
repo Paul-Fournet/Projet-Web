@@ -17,23 +17,13 @@ $_SESSION['connected']=false;
 </head>
 
 <body>
-    <form method="post" action="formulaire.php">
-        <button type="button" class="boutonretour" value="Retour" name="retour">Retour</button>
-    </form>
     
-    <?php
-        if(isset($_POST['retour'])){
-            header('Location:indx.php');
-        }
-    ?>
 
-    </input>
 
-    <?php
-    if(isset($_POST['retour'])){
-        header("Location:index.html");
-    }
-    ?>
+    
+    <form method="post" action="formulaire.php">
+        <a type="button" class="boutonretour" value="Retour" name="retour" href="index.php">Retour</a>
+    </form>
 
     <div class="divform">
 
