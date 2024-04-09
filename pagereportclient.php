@@ -2,7 +2,7 @@
 session_start();
 
 require("fonctions.php");
-
+require("BDconnexion.php")
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ else{
 
         Nom : <input type="text" name="nom" placeholder="Votre nom"></input><br>
        
-        Prénom : <input type="text" name="prénom" placeholder="Votre prénom"></input><br>
+        Prénom : <input type="text" name="prenom" placeholder="Votre prénom"></input><br>
 
         Email : <input type="email" name="email" placeholder="Votre email"></input><br>
 
@@ -56,11 +56,32 @@ else{
 </div>
 <?php
 }
+
+//Si le bouton "Envoyer" est cliqué
 if(isset($_POST["submit"])){
+
+    if($_POST['nom']==NULL || $_POST['prenom']==NULL || $_POST['email']==NULL || $_POST['message']==NULL){
+        echo '<p style="color:red">Saisie invalide</p>';
+    }
+
+    //Récupération des données entrées dans le formulaire
+    $nom=nettoyer_donnees($_POST['nom']);
+    $prenom=nettoyer_donnees($_POST['prenom']);
+    $email=nettoyer_donnees($_POST['email']);
+    $message=nettoyer_donnees($_POST['message']);
+
+    //A présent on crée une requête afin d'ajouter les informations à la base de données
+    $req=$conn->prepare("INSERT INTO 'requetes' VALUES");
 
 }
 
 
+
+
+
+
+//Déconnexion de la base de données
+$conn=NULL;
 ?>
 
 </body>
