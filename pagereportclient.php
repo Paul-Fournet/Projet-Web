@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require("fonctions.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -16,24 +19,49 @@ session_start();
 if($_SESSION['connected']===false){
     echo 'Il faut être <a href="formulaire.php" style="text-decoration:underline;">connecté</a> pour pouvoir ajouter des commentaires';
 }
+else{
 ?>
+<div class="assistance">
+    <h2>Assistance</h2>
+    <br>
+    <p>Vous souhaitez poser une question ou juste suggérer une modification ?
+    <br>Pas de problème, vous pouvez parler à un expert en remplissant le questionnaire ci-dessous :</p>
+    <br>
+        <form method="post" action="pagereportclient.php">
 
-<h2>Assistance</h2>
-<br>
+        Nom : <input type="text" name="nom" placeholder="Votre nom"></input><br>
+       
+        Prénom : <input type="text" name="prénom" placeholder="Votre prénom"></input><br>
 
-<p>Vous souhaitez poser une question ou juste suggérer une modification ?
-<br>Pas de problème, vous pouvez parler à un expert en remplissant le questionnaire ci-dessous :</p>
-<br>
-<form method="post" action="pagereportclient.php">
-Nom : <br><input type="text" name="nom" placeholder="Votre nom"></input><br><br>
-Prénom : <br><input type="text" name="prénom" placeholder="Votre prénom"></input><br><br>
-Type de requête : <br>
-Message :<br><input type="text" placeholder="500 caractères maximum" name="message"></input>
-<br><br>
-<input type="submit" name="submit"></input>
+        Email : <input type="email" name="email" placeholder="Votre email"></input><br>
+
+        Type de requête : 
+        <select name="typereq">
+            <option value=0>--Veuillez sélectionner le type de requête--</option>
+            <option value=1>Suggestion</option>
+            <option value=2>Bug / Problème</option>
+            <option value=3>Assistance</option>
+       </select>
+       <br><br>
+    
+    
+        Message : <br><textarea type="text" placeholder="500 caractères maximum" name="message" rows="13" cols="70" maxlength="500"></textarea>
+    
+        <br><br>
+
+        <input type="submit" name="submit"></input>
 
 
-</form>
+        </form>
+</div>
+<?php
+}
+if(isset($_POST["submit"])){
+
+}
+
+
+?>
 
 </body>
 

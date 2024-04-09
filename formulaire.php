@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require("fonctions.php");
+
 //L'utilisateur n'est pas connecté
 $_SESSION['connected']=false;
 ?>
@@ -32,9 +34,9 @@ $_SESSION['connected']=false;
         <form class="formulaire" method="post" action="formulaire.php">
             <p class="titre">Connexion</p><br>
     
-            <label>Identifiant</label><br><input type="text" name="id" placeholder="Votre identifiant" class="inputtext"><br><br>
+            <label>Identifiant</label><br><input type="text" name="id" placeholder="Votre identifiant" class="inputtext" maxlength="20" required pattern="^[A-Za-z '-]+$"><br><br>
 
-            <label>Mot de passe</label><br><input type="password" name="mdp" class="inputtext" placeholder="Votre mot de passe"><br><br>
+            <label>Mot de passe</label><br><input type="password" name="mdp" class="inputtext" placeholder="Votre mot de passe" maxlength="20" required pattern="^[A-Za-z '-]+$"><br><br>
 
             <input type="submit" name="submit">
     
@@ -48,8 +50,8 @@ $_SESSION['connected']=false;
         $mdpclient='client123';
 
         if(isset($_POST['submit'])){
-            $_SESSION['id']=$_POST['id'];
-            $_SESSION['mdp']=$_POST['mdp'];
+            $_SESSION['id']=nettoyer_donnees($_POST['id']);
+            $_SESSION['mdp']=nettoyer_donnees($_POST['mdp']);
 
             //Si l'utilisateur est un client
             if($_SESSION['id']===$idclient && $_SESSION['mdp']===$mdpclient){
