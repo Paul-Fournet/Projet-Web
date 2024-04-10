@@ -6,17 +6,28 @@
         <li><p>Téléphone : 06 54 32 10 12</p></li>
 
         <?php
-          if($_SESSION['user']==='client'){
+        if(isset($_SESSION['user'])){
+        
+        if($_SESSION['user']==='client'){
         ?>
         <li><a href="pagereportclient.php">Un problème ? / Une suggestion ?</a></li>
         <?php
-          }
+        }
           
           elseif($_SESSION['user']==='admin'){
         ?>
         <li><a href="pagereportadmin.php">Reports de bugs</a></li>
         <?php
           }
+        }
+
+        else{
+        $_SESSION['connected']=false;
+        ?>
+        <li><a href="pagereportclient.php">Un problème ? / Une suggestion ?</a></li>
+        <?php
+        }
+
         ?>
       </ul>
     </div>

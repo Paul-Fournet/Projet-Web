@@ -16,24 +16,29 @@ require("BDconnexion.php")
 <body class="bodypageclient">
     
 <?php
-if($_SESSION['connected']===false){
+if(/*!isset($_SESSION['connected']) ||*/ $_SESSION['connected']===false){
     echo 'Il faut être <a href="formulaire.php" style="text-decoration:underline;">connecté</a> pour pouvoir ajouter des commentaires';
 }
 else{
 ?>
-<div class="assistance">
     <h2>Assistance</h2>
     <br>
     <p>Vous souhaitez poser une question ou juste suggérer une modification ?
     <br>Pas de problème, vous pouvez parler à un expert en remplissant le questionnaire ci-dessous :</p>
     <br>
-        <form method="post" action="pagereportclient.php">
+<form method="post" action="pagereportclient.php">
+    <fieldset class="assistance">
 
+        
+        
         Nom : <input type="text" name="nom" placeholder="Votre nom"></input><br>
+        <hr>
        
         Prénom : <input type="text" name="prenom" placeholder="Votre prénom"></input><br>
+        <hr>
 
         Email : <input type="email" name="email" placeholder="Votre email"></input><br>
+        <hr>
 
         Type de requête : 
         <select name="typereq">
@@ -42,18 +47,19 @@ else{
             <option value=2>Bug / Problème</option>
             <option value=3>Assistance</option>
        </select>
-       <br><br>
+       <br>
+        <hr>
     
-    
-        Message : <br><textarea type="text" placeholder="500 caractères maximum" name="message" rows="11" cols="60" maxlength="500"></textarea>
-    
-        <br><br>
+        Message : <br><textarea type="text" placeholder="500 caractères maximum" name="message" rows="11" cols="60" maxlength="500" class="messagearea"></textarea>
+        <br>
+        
 
         <input type="submit" name="submit"></input>
 
 
-        </form>
-</div>
+        
+    </fieldset>
+</form>
 <?php
 
 //Si le bouton "Envoyer" est cliqué
@@ -88,15 +94,24 @@ $req2=$conn->prepare("SELECT * FROM projet_bd.requetes");
 $req2->execute();
 $resultmessages=$req2->fetchAll();
 
-echo '<pre>';
-print_r($resultmessages);
-echo '</pre>';
 
+
+echo '<div class="divreponses">';
+foreach($resultmessages as $val){
+    echo 
+        "<div class='reponsesreq'>
+            <p>De : ".$val['nom']." ".$val['prenom']." le ".$val['horaire']." </p>
+            <hr>
+            <p>".$val['messagetext']."</p>
+        </div>";
 }
+echo '</div>';
+
 
 
 //Déconnexion de la base de données
 $conn=NULL;
+}
 ?>
 
 </body>
