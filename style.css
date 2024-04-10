@@ -693,3 +693,10 @@ p {
 .bodypageclient{
   padding:10px;
 }
+
+
+/*Page d'assstance client*/
+.assistance{
+  background-color: #ffffff50;
+  border: solid 5px grey;
+}

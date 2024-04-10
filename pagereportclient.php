@@ -68,10 +68,19 @@ if(isset($_POST["submit"])){
     $nom=nettoyer_donnees($_POST['nom']);
     $prenom=nettoyer_donnees($_POST['prenom']);
     $email=nettoyer_donnees($_POST['email']);
+    $type=nettoyer_donnees($_POST['typereq']);
     $message=nettoyer_donnees($_POST['message']);
-
+    $date=time();
+    $horaire=date("Y-m-d",$date);
+    
     //A présent on crée une requête afin d'ajouter les informations à la base de données
-    $req=$conn->prepare("INSERT INTO 'requetes' VALUES");
+    $req=$conn->prepare("INSERT INTO projet_bd.requetes(isadmin,nom,prenom,typereq,horaire,messagetext) 
+                        VALUES (:isadmin,:nom,:prenom,:typereq,:horaire,:messagetext)");
+
+    $req->execute(array(':isadmin'=>0,':nom'=>$nom,':prenom'=>$prenom,':typereq'=>$type,':horaire'=>$horaire,':messagetext'=>$message));
+    header("Location:pagereportclient.php");
+    echo "Message envoyé !";
+
 
 }
 
