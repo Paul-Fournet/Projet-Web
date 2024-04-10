@@ -45,7 +45,7 @@ else{
        <br><br>
     
     
-        Message : <br><textarea type="text" placeholder="500 caractères maximum" name="message" rows="13" cols="70" maxlength="500"></textarea>
+        Message : <br><textarea type="text" placeholder="500 caractères maximum" name="message" rows="11" cols="60" maxlength="500"></textarea>
     
         <br><br>
 
@@ -55,7 +55,6 @@ else{
         </form>
 </div>
 <?php
-}
 
 //Si le bouton "Envoyer" est cliqué
 if(isset($_POST["submit"])){
@@ -78,15 +77,22 @@ if(isset($_POST["submit"])){
                         VALUES (:isadmin,:nom,:prenom,:typereq,:horaire,:messagetext)");
 
     $req->execute(array(':isadmin'=>0,':nom'=>$nom,':prenom'=>$prenom,':typereq'=>$type,':horaire'=>$horaire,':messagetext'=>$message));
-    header("Location:pagereportclient.php");
     echo "Message envoyé !";
-
-
+    header("Location:pagereportclient.php");
 }
 
 
+//Affichage des messages
 
+$req2=$conn->prepare("SELECT * FROM projet_bd.requetes");
+$req2->execute();
+$resultmessages=$req2->fetchAll();
 
+echo '<pre>';
+print_r($resultmessages);
+echo '</pre>';
+
+}
 
 
 //Déconnexion de la base de données

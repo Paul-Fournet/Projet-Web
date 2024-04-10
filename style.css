@@ -699,4 +699,6 @@ p {
 .assistance{
   background-color: #ffffff50;
   border: solid 5px grey;
+  padding:20px;
+  margin:30px;
 }
