@@ -65,7 +65,7 @@ else{
 //Si le bouton "Envoyer" est cliqué
 if(isset($_POST["submit"])){
 
-    if($_POST['nom']==NULL || $_POST['prenom']==NULL || $_POST['email']==NULL || $_POST['message']==NULL){
+    if($_POST['nom']==NULL || $_POST['prenom']==NULL || $_POST['email']==NULL || $_POST['message']==NULL || $_POST['email']==0){
         echo '<p style="color:red">Saisie invalide</p>';
     }
 
@@ -77,12 +77,16 @@ if(isset($_POST["submit"])){
     $message=nettoyer_donnees($_POST['message']);
     $date=time();
     $horaire=date("Y-m-d",$date);
+    $heure=getdate();
+    $heure['hours']=$heure['hours']+2;
+    $horaireminutes=$heure['hours']."h".$heure['minutes'];
+    
     
     //A présent on crée une requête afin d'ajouter les informations à la base de données
-    $req=$conn->prepare("INSERT INTO projet_bd.requetes(isadmin,nom,prenom,typereq,horaire,messagetext) 
-                        VALUES (:isadmin,:nom,:prenom,:typereq,:horaire,:messagetext)");
+    $req=$conn->prepare("INSERT INTO projet_bd.requetes(isadmin,nom,prenom,typereq,horaire,horaireheureminutes,messagetext) 
+                        VALUES (:isadmin,:nom,:prenom,:typereq,:horaire,:horaireheureminutes,:messagetext)");
 
-    $req->execute(array(':isadmin'=>0,':nom'=>$nom,':prenom'=>$prenom,':typereq'=>$type,':horaire'=>$horaire,':messagetext'=>$message));
+    $req->execute(array(':isadmin'=>0,':nom'=>$nom,':prenom'=>$prenom,':typereq'=>$type,':horaire'=>$horaire,':horaireheureminutes'=>$horaireminutes,':messagetext'=>$message));
     echo "Message envoyé !";
     header("Location:pagereportclient.php");
 }
@@ -95,14 +99,26 @@ $req2->execute();
 $resultmessages=$req2->fetchAll();
 
 
-
 echo '<div class="divreponses">';
 foreach($resultmessages as $val){
     echo 
         "<div class='reponsesreq'>
-            <p>De : ".$val['nom']." ".$val['prenom']." le ".$val['horaire']." </p>
+            <p>De : ".$val['nom']." ".$val['prenom']." le ".$val['horaire']." à ".$val['horaireheureminutes']." </p>
             <hr>
-            <p>".$val['messagetext']."</p>
+            <p style='font-weight:bold;'>[";
+            //Affichag du type de requête
+            if($val['typereq']==1){
+                echo 'Suggestion';
+            }
+            if($val['typereq']==2){
+                echo 'Bug / Problème';
+            }
+            if($val['typereq']==3){
+                echo 'Assistance';
+            }
+
+            echo ']</p>
+            <p>'.$val['messagetext']."</p>
         </div>";
 }
 echo '</div>';
