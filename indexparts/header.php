@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li>
-          <a href="" class="active">Accueil</a>
+          <a href="index.php" class="active">Accueil</a>
         </li>
         <li>
           <a href="#scrollfooter" id="buttonfooter">Services</a>
@@ -28,3 +28,4 @@
         <?php
         }
         ?>
+</header>

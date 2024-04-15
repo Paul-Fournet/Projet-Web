@@ -11,8 +11,12 @@ require("BDconnexion.php")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
     <title>Un problème ?</title>
 </head>
+<?php
+require("indexparts/header.php");
+?>
 <body class="bodypageclient">
     
 <?php
@@ -134,7 +138,11 @@ echo '</div>';
 $conn=NULL;
 }
 ?>
-
 </body>
+<?php
+require("indexparts/footer.php");
+
+?>
+
 
 </html>
