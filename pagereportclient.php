@@ -79,8 +79,13 @@ if(isset($_POST["submit"])){
     $horaire=date("Y-m-d",$date);
     $heure=getdate();
     $heure['hours']=$heure['hours']+2;
-    $horaireminutes=$heure['hours']."h".$heure['minutes'];
     
+    if($heure['minutes']<10){
+        $horaireminutes=$heure['hours']."h0".$heure['minutes'];
+    }
+    else{
+        $horaireminutes=$heure['hours']."h".$heure['minutes'];
+    }
     
     //A présent on crée une requête afin d'ajouter les informations à la base de données
     $req=$conn->prepare("INSERT INTO projet_bd.requetes(isadmin,nom,prenom,typereq,horaire,horaireheureminutes,messagetext) 
