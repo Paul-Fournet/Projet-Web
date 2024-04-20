@@ -15,7 +15,7 @@
 
         <?php
         if(!isset($_SESSION['connected'])){
-
+          echo "<li><a href='formulaire.php'>Connexion</a></li>";
         }
         elseif($_SESSION['connected']===true){
           echo '<li><a href="deconnexion.php">Déconnexion</a></li>';
