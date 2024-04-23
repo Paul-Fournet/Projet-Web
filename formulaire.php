@@ -15,17 +15,17 @@ $_SESSION['connected']=false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
     <link rel="stylesheet" href="formstyle.css" />
+    <link rel="stylesheet" href="footer.css" />
 
 </head>
+
+<?php
+    require("indexparts/header.php");
+?>
 
 <body>
     
 
-
-    
-    <form method="post" action="formulaire.php">
-        <a type="button" class="boutonretour" value="Retour" name="retour" href="index.php">Retour</a>
-    </form>
 
     <div class="divform">
 
@@ -80,14 +80,10 @@ $_SESSION['connected']=false;
 
 
 
-
 ?>
 
     </div>
 
 
 </body>
-
-
-
 </html>

@@ -16,7 +16,6 @@ body{
   background-size: cover;
   background-position: center;
   height: 100%;
-  display:flex;
   justify-content: center;
   align-items: center;
 }
@@ -37,25 +36,95 @@ body{
 }
 
 
-.boutonretour{
-  display: flow;
-  color:white;
-  background-color: rgba(255, 255, 255, 0.479);
+
+
+/*Style de l'en tête de la page*/
+
+/* Style de l'en-tête de la page */
+
+header {
+  background: transparent;
+  border-radius: 15px;
+  top: 0px;
+  left: 10px;
+  right: 10%;
+  backdrop-filter: blur(2px) brightness(80%);
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  position: sticky;
+  z-index: 2;
   text-decoration: none;
-  padding:15px;
-  border:5px;
-  border-radius: 10%;
-  border:solid rgb(255, 255, 255);
+  flex-wrap:wrap;
+  list-style-type: none;
 }
-
-.boutonretour:hover{
-  background-color: rgba(255, 255, 255, 0.731);
+/* Style du logo dans l'en-tête "PLANTES-D" */
+header .logo {
+  font-size: 30px;
+  text-transform: uppercase;
 }
-
-.boutonretour:active{
-  color: rgb(0, 0, 0);
+header nav ul {
+  display: flex;
 }
+header nav ul li a {
+  display: inline-block;
+  color: white;
+  padding: 5px 0;
+  margin: 0 10px;
+  border: 3px solid transparent;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+/* Animation au survol des liens de navigation */
+header nav ul li a:hover {
+  border-bottom-color: dodgerblue;
+}
+/* Style de l'icône de menu (hamburger) "(les trois tirets ou lignes)"*/
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  margin: 5px 0;
+  background: white;
+}
+/* Media query pour les écrans de petite taille (max-width: 900px) */
+@media only screen and (max-width: 900px) {
+  header {
+    padding: 0 30px;
+  }
+}
+/* Media query pour les écrans de très petite taille (max-width: 700px) */
+@media only screen and (max-width: 700px) {
+  /* Affichage de l'icône de menu (hamburger) */
+  .hamburger {
+    display: block;
+  }
+  header nav {
+    position: absolute;
 
-
+    width: 100%;
+    left: -100%;
+    top: 70px;
+    width: 100%;
+    background: transparent;
+    padding: 30px;
+    transition: 0.3s;
+  }
+  header #nav_check:checked ~ nav {
+    left: 0;
+  }
+  header nav ul {
+    display: block;
+  }
+  header nav ul li a {
+    margin: 5px 0;
+  }
+}
 
 

@@ -111,7 +111,12 @@ $resultmessages=$req2->fetchAll();
 echo '<div class="divreponses">';
 foreach($resultmessages as $val){
     echo 
-        "<div class='reponsesreq'>
+        "<div class='reponsesreq'>";
+        if($val['IsAdmin']){
+            echo "<p style='font-weight:bold;'>[ADMIN]</p>";
+        }
+        echo "
+
             <p>De : ".$val['nom']." ".$val['prenom']." le ".$val['horaire']." à ".$val['horaireheureminutes']." </p>
             <hr>
             <p style='font-weight:bold;'>[";

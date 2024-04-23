@@ -263,6 +263,6 @@ session_start();
   </body>
   <?php
   require("indexparts/footer.php");
-  session_destroy();
+
   ?>
 </html>
