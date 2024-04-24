@@ -263,6 +263,5 @@ session_start();
   </body>
   <?php
   require("indexparts/footer.php");
-
   ?>
 </html>

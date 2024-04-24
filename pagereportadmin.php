@@ -29,7 +29,7 @@ else{
     <h2>Gestion Admin</h2>
     <br>
     <br>
-<form method="post" action="pagereportadmin.php">
+<form method="post" action="pagereportadmin.php" style="display:flex;">
     <fieldset class="assistance">
 
         

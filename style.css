@@ -701,4 +701,23 @@ p {
   border: solid 5px grey;
   padding:20px;
   margin:30px;
+  border-radius: 5px;
+  display:flex;
+  justify-content: center;
+}
+
+
+
+.divreponses{
+  display:flex; 
+  flex-wrap:wrap;
+}
+
+.reponsesreq{
+  border: solid 5px grey; 
+  border-radius:5px; 
+  padding:10px; 
+  margin:20px; 
+  background-color:#ffffff50
+
 }
