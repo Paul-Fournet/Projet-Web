@@ -690,10 +690,6 @@ p {
   list-style:inside;
 }
 
-.bodypageclient{
-  padding:10px;
-}
-
 
 /*Page d'assstance client*/
 .assistance{
@@ -702,8 +698,6 @@ p {
   padding:20px;
   margin:30px;
   border-radius: 5px;
-  display:flex;
-  justify-content: center;
 }
 
 
@@ -720,4 +714,11 @@ p {
   margin:20px; 
   background-color:#ffffff50
 
+}
+
+
+
+
+.buttonnavheader{
+  text-decoration: none;
 }

@@ -26,9 +26,11 @@ if(!isset($_SESSION['connected']) || $_SESSION['connected']===false || $_SESSION
 }
 else{
 ?>
+<div style="padding:10px;">
     <h2>Gestion Admin</h2>
     <br>
     <br>
+</div>
 <form method="post" action="pagereportadmin.php" style="display:flex;">
     <fieldset class="assistance">
 

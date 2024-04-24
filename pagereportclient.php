@@ -24,13 +24,15 @@ if(/*!isset($_SESSION['connected']) ||*/ $_SESSION['connected']===false){
     echo 'Il faut être <a href="formulaire.php" style="text-decoration:underline;">connecté</a> pour pouvoir ajouter des commentaires';
 }
 else{
-?>
+?>  
+<div style="padding:10px;">
     <h2>Assistance</h2>
     <br>
     <p>Vous souhaitez poser une question ou juste suggérer une modification ?
     <br>Pas de problème, vous pouvez parler à un expert en remplissant le questionnaire ci-dessous :</p>
     <br>
-<form method="post" action="pagereportclient.php">
+</div>
+<form method="post" action="pagereportclient.php" style="max-width: min-content;">
     <fieldset class="assistance">
 
         
