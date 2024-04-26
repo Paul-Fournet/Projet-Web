@@ -16,6 +16,7 @@ body{
   background-size: cover;
   background-position: center;
   height: 100%;
+  width:100%;
   justify-content: center;
   align-items: center;
 }
@@ -28,6 +29,7 @@ body{
   display: flex;
   align-items: center;
   max-width:fit-content;
+  margin:30px;
 }
 
 .inputtext{
@@ -63,6 +65,7 @@ header {
   text-decoration: none;
   flex-wrap:wrap;
   list-style-type: none;
+  width:100%;
 }
 /* Style du logo dans l'en-tête "PLANTES-D" */
 header .logo {

@@ -4,26 +4,26 @@
     <nav>
       <ul>
         <li>
-          <a href="index.php" class="active" class="buttonnavheader">Accueil</a>
+          <a href="index.php" class="active" class="buttonnavheader" style="text-decoration:none;">Accueil</a>
         </li>
         <li>
-          <a href="#scrollfooter" id="buttonfooter" class="buttonnavheader">Services</a>
+          <a href="#scrollfooter" id="buttonfooter" class="buttonnavheader" style="text-decoration:none;">Services</a>
         </li>
         <li>
-          <a href="pagereportclient.php" class="buttonnavheader">Contacter</a>
+          <a href="pagereportclient.php" class="buttonnavheader" style="text-decoration:none;">Contacter</a>
         </li>
 
         <?php
         if(!isset($_SESSION['connected'])){
-          echo "<li><a href='formulaire.php' class='buttonnavheader'>Connexion</a></li>";
+          echo "<li><a href='formulaire.php' class='buttonnavheader' style='text-decoration:none;'>Connexion</a></li>";
         }
         elseif($_SESSION['connected']===true){
-          echo '<li><a href="deconnexion.php" class="buttonnavheader">Déconnexion</a></li>';
+          echo '<li><a href="deconnexion.php" class="buttonnavheader" style="text-decoration:none;">Déconnexion</a></li>';
         }
         else{
         ?>
         <li>
-          <a href="formulaire.php" class='buttonnavheader'>Connexion</a>
+          <a href="formulaire.php" class='buttonnavheader' style="text-decoration:none;">Connexion</a>
         </li>
         <?php
         }

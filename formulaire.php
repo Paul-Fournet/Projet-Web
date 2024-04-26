@@ -86,4 +86,9 @@ $_SESSION['connected']=false;
 
 
 </body>
+
+<?php
+require("indexparts/footer.php");
+?>
+
 </html>
