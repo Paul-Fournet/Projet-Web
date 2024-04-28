@@ -1,0 +1,718 @@
+/* Le symbole * permet d'appliquer un style sur toute la page */
+* { 
+    margin: 0;
+    padding: 0;
+    font-family: "Sofia Sans", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    will-change: transform;
+  
+    color: white;
+  
+    background-image: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/193.jpg?v=1702387165149");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    justify-content: center;
+    min-height: 500px;
+    background-size: cover;
+  }
+  /* Style de l'en-tête de la page */
+  
+  header {
+    background: black;
+    border-radius: 15px;
+    top: 0px;
+    left: 10px;
+    right: 10%;
+    backdrop-filter: blur(2px) brightness(80%);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    position: sticky;
+    z-index: 2;
+  }
+  /* Style du logo dans l'en-tête "PLANTES-D" */
+  header .logo {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  header nav ul {
+    display: flex;
+  }
+  header nav ul li a {
+    display: inline-block;
+    color: white;
+    padding: 5px 0;
+    margin: 0 10px;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    transition: 0.2s;
+  }
+  /* Animation au survol des liens de navigation */
+  header nav ul li a:hover {
+    border-bottom-color: dodgerblue;
+  }
+  /* Style de l'icône de menu (hamburger) "(les trois tirets ou lignes)"*/
+  .hamburger {
+    cursor: pointer;
+    display: none;
+  }
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: white;
+  }
+  /* Media query pour les écrans de petite taille (max-width: 900px) */
+  @media only screen and (max-width: 900px) {
+    header {
+      padding: 0 30px;
+    }
+  }
+  /* Media query pour les écrans de très petite taille (max-width: 700px) */
+  @media only screen and (max-width: 700px) {
+    /* Affichage de l'icône de menu (hamburger) */
+    .hamburger {
+      display: block;
+    }
+    header nav {
+      position: absolute;
+  
+      width: 100%;
+      left: -100%;
+      top: 70px;
+      width: 100%;
+      background: transparent;
+      padding: 30px;
+      transition: 0.3s;
+    }
+    header #nav_check:checked ~ nav {
+      left: 0;
+    }
+    header nav ul {
+      display: block;
+    }
+    header nav ul li a {
+      margin: 5px 0;
+    }
+  }
+  /* Masquer la scrollbar de défilement */
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .container {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .top-section {
+    text-align: center;
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  /* Style de la timeline la ligne verticale qui contient les planetes */
+  .timeline {
+    position: relative;
+    min-height: 150px;
+  }
+  
+  .line {
+    position: absolute;
+  
+    left: calc(50% - 1px);
+    width: 2px;
+    top: 0;
+    bottom: 0;
+    background-color: #ffffff;
+  }
+  /* Points sur la ligne de la timeline */
+  .line:before,
+  .line:after {
+    position: absolute;
+    display: block;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .line:after {
+    bottom: 0;
+  }
+  
+  .section {
+    display: flex;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+    z-index: 1;
+    margin: 50px 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    align-items: center;
+    min-height: 300px;
+  }
+  
+  .section:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  
+  .section:hover,
+  .section:active {
+    opacity: 1;
+    transform: none;
+  }
+  /* Style des images circulaires (beads)  la petit fusée sur le timline */
+  .bead::before {
+    content: "";
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+  
+    background-image: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/lancement-de-fusee%20(1).png?v=1700514231040");
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    /* La valeur de z-index doit être plus grande que celle de la ligne */
+  }
+  
+  .content {
+    width: calc(50% - 2rem);
+  }
+  
+  /* Style CSS pour aligner l'image à gauche avec une marge à droite */
+  
+  h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    
+  }
+  
+  
+  .section .content .original-text {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .section .content .alternate-text {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+  
+  .section:hover .content .original-text {
+    opacity: 1;
+  }
+  
+  .section:hover .content .alternate-text {
+    opacity: 0;
+  }
+  
+  img {
+    width: 80%;
+    height: 80%;
+  }
+  /* Style des liens */
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Style de l'effet de texte gradient pour h1 */
+  h1 {
+    position: relative;
+    font-family: Geneva, sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #001f3f, #fff, #001f3f);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animationtitre 3s;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  }
+  
+  @keyframes animationtitre {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
+  }
+  
+  p {
+    color: white;
+  }
+  .original-text {
+    /* Couleur de fond */
+    padding: 20px; /* Espacement intérieur */
+    border: 1px solid #ddd; /* Bordure avec une couleur plus claire */
+    border-radius: 30px; /* Coins arrondis */
+  
+    box-shadow: inset 0 0 1em, /* Bleu espace */ 0 0 1em #187bcd; /* Bleu marine */
+  
+    transition: background-color 0.3s ease; /* Transition pour le changement de couleur de fond */
+  }
+  
+  .original-text {
+    background-color: black; /* Couleur de fond au survol (nocturne) */
+    transition: background-color 0.3s ease; /* Transition en douceur */
+  }
+  
+  .content h2 {
+    color: #333;
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  /* Effet de survol pour le contenu h2 */
+  .content h2 {
+    color: white;
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
+      0 0 80px #00b3ff, 0 0 120px #00b3ff;
+  }
+  /* Style de la ligne de la timeline avec effet de boîte d'ombre */
+  .timeline .line {
+    box-shadow: 0 0 10px #6fc3df, 0 0 20px #6fc3df, 0 0 40px #6fc3df,
+      0 0 80px #6fc3df, 0 0 160px #6fc3df;
+    
+  }
+  
+  .cars {
+    padding: 20px; /* Espacement intérieur */
+    border: 1px solid #dddddd; /* Bordure avec une couleur plus claire */
+    border-radius: 30px;
+  }
+  .neptune {
+    width: 130%; /* Ajustez la valeur selon vos besoins */
+    height: auto;
+    margin-left: -40%;
+  }
+  .planete {
+    width: 40%;
+  }
+  
+  .video {
+    width: 80%;
+  }
+  
+  .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  /* style sur les planetes parceque ce sont des videos en fait*/
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .content h1,
+  .content p {
+    margin: 0;
+  }
+  
+  a .original-text:hover {
+    text-decoration: underline;
+  }
+  
+  .buttonnav {
+    border: 5px solid grey;
+  }
+  
+  .buttonnav:active {
+    border: 5px solid blue;
+  }
+  
+  .principal {
+    background-color: rgba(255, 255, 255, 0.313);
+    color: white;
+  }
+  
+  #buttonfooter {
+    cursor: pointer;
+  }
+  
+  .photoretour {
+    height: 30px;
+    width: 30px;
+    z-index: 4;
+  }
+  
+  .diapo {
+    height: 100px;
+    width: 10%;
+    position: relative;
+    border: 2px solid red;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    border: none;
+  }
+  
+  .diapoactus {
+    border: 2px dashed blue;
+    width: 50%;
+    display: flex;
+    position: relative;
+    animation-name: diaporama;
+    animation-duration: 10s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border: none;
+  }
+  
+  @keyframes diaporama {
+    from {
+      left: 0%;
+    }
+    10% {
+      left: 0%;
+    }
+    30% {
+      left: -100%;
+    }
+    40% {
+      left: -100%;
+    }
+    60% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    90% {
+      left: -300%;
+    }
+    to {
+      left: -300%;
+    }
+  }
+  
+  /*Affichage téléphone*/
+  
+  @media (width <= 600px) {
+    /* styles pour les viewports <= 400px */
+    .bodypagesec {
+      color: black;
+      overflow: scroll;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 80px auto 600px 200px 200px;
+      grid-template-areas:
+        "entete"
+        "navig"
+        "principal"
+        "coteg"
+        "coted";
+    }
+  
+    .entete {
+      grid-area: entete;
+      background-color: red;
+    }
+  
+    .principal {
+      grid-area: principal;
+    }
+  
+    .contenucoteg {
+      grid-area: coteg;
+      background-color: pink;
+    }
+  
+    .contenucoted {
+      grid-area: coted;
+      background-color: grey;
+    }
+  
+    .barrenav {
+      grid-area: navig;
+      background-color: grey;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      justify-content: space-evenly;
+    }
+  
+    .buttonnav {
+      text-align: center;
+      border: 3px solid black;
+      border-radius: 5px;
+    }
+  }
+  
+  /*Affichage ordinateur*/
+  
+  @media (width > 600px) {
+    .bodypagesec {
+      color: black;
+      display: grid;
+      overflow: scroll;
+      height: 100vw;
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-rows: 90px 50px auto;
+      grid-template-areas:
+        "entete entete entete"
+        "coteg barnav coted"
+        "coteg principal coted";
+    }
+  
+    .agrandissement {
+      transition: border 0.3s ease 0s;
+    }
+  
+    .agrandissement:hover {
+      border: 5px solid white;
+    }
+  
+    .buttonnav {
+      border-radius: 5px;
+    }
+  
+    .entete {
+      background-color: red;
+      grid-area: entete;
+    }
+  
+    .principal {
+      background-color: rgba(255, 255, 255, 0.313);
+      grid-area: principal;
+      color: white;
+    }
+  
+    .contenucoteg {
+      background-color: pink;
+      grid-area: coteg;
+    }
+  
+    .contenucoted {
+      background-color: green;
+      grid-area: coted;
+    }
+  
+    .barrenav {
+      background-color: grey;
+      grid-area: barnav;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  
+  
+  p {
+    font-family: "Sofia Sans", sans-serif;
+  }
+  #css {
+    color: yellow;
+    font-family: "Odibee Sans", cursive;
+  }
+  /* Style pour les images sliders tout en bas de la page */
+  .carousel-wrapper {
+    height: 350px;
+  
+    position: relative;
+    width: 600px;
+    display: block;
+    margin: 50px auto;
+    border: 0px solid;
+    border-radius: 15px;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 50px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    border-radius: 30px;
+  }
+  .arrow {
+    border: solid;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px;
+  }
+  .arrow-prev {
+    left: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+  }
+  .arrow-next {
+    right: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  
+  [id^="item"] {
+    display: none;
+  }
+  .item-1 {
+    z-index: 2;
+    opacity: 1;
+    background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/cover-r4x3w1200-65815f826fc0d-weic2332a.jpg?v=1703248052202");
+    background-size: cover;
+    
+  }
+  .item-2 {
+    background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/cover-r4x3w1200-60290b63cd63f-097be8390ef3e52ad694a0a4b9c189d9766e54d8-jpg.jpg?v=1703247642803");
+    background-size: cover;
+  }
+  .item-3 {
+    background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/cover-r4x3w1200-6553394e33d6f-europa-clipper-journey-to-an-ocean-world-poster-1200.jpg?v=1703249480390");
+    background-size: cover;
+  }
+  .item-4 {
+    background: url("https://cdn.glitch.global/0d711981-cd27-4d87-9692-6f0453b5570a/cover-r4x3w1200-648a18100fea2-bded7ed950bec503e9e9f63b76ffad53ed5e600a-jpg.jpg?v=1703249774972");
+    background-size: cover;
+  }
+  
+  
+  *:target ~ .item-1 {
+    opacity: 0;
+  }
+  #item-1:target ~ .item-1 {
+    opacity: 1;
+  }
+  #item-2:target ~ .item-2,
+  #item-3:target ~ .item-3,
+  #item-4:target ~ .item-4 {
+    z-index: 4;
+    opacity: 1;
+  }
+  
+  #item-4:target ~ .item-4 {
+    z-index: 5;
+    opacity: 1;
+  }
+  
+  
+  .carousel-item h2.hi a {
+    font-family:'Sofia Sans', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    padding: .5em .8em;
+    color: white;
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    top:0%;
+    left:40%; /* Ajustez la valeur selon vos besoins */
+   
+  }
+  
+  .carousel-item h2.hi a::before,
+  .carousel-item h2.hi a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+  }
+  
+  .carousel-item h2.hi a:hover {
+    color: #3DA35D;
+  }
+  
+  #lienphp{
+    color:#eeff00;
+  }
+  
+  #lienphp::active{
+    color:#00fbff;
+  }
+  
+  #lienphp::hover{
+    text-decoration:underline;
+    color:red;
+  }
+  
+  #listephp{
+    list-style:inside;
+  }
+  
+  
+  /*Page d'assstance client*/
+  .assistance{
+    background-color: #ffffff50;
+    border: solid 5px grey;
+    padding:20px;
+    margin:30px;
+    border-radius: 5px;
+  }
+  
+  
+  
+  .divreponses{
+    display:flex; 
+    flex-wrap:wrap;
+  }
+  
+  .reponsesreq{
+    border: solid 5px grey; 
+    border-radius:5px; 
+    padding:10px; 
+    margin:20px; 
+    background-color:#ffffff50
+  
+  }
+  
+  
+  
+  
+  .buttonnavheader{
+    text-decoration: none;
+  }

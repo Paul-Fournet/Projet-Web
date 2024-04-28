@@ -10,8 +10,15 @@ require("BDconnexion.php")
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <?php // Cherche si l'utilisateur a deja une préference pour le thème.
+
+    if ( isset($_COOKIE['User_Pref'])){ // si le cookie existe (isset)
+        $style=$_COOKIE['User_Pref'];	// on récupère le theme choisi enregistré dans le cookie
+    }
+    else $style="clair"; // valeur par défaut
+    ?>
+    <link rel="stylesheet" href="style<?php echo "_$style"; ?>.css" />
+    <link rel="stylesheet" href="footer<?php echo "_$style"; ?>.css" />
     <title>Un problème ?</title>
 </head>
 <?php

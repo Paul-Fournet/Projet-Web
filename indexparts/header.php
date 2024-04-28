@@ -1,4 +1,5 @@
 <header>
+  <link rel="stylesheet" href="theme.css">
     <div class="logo">PLANETS–D</div>
     <input type="checkbox" id="nav_check" hidden />
     <nav>
@@ -25,6 +26,17 @@
         <li>
           <a href="formulaire.php" class='buttonnavheader' style="text-decoration:none;">Connexion</a>
         </li>
+
+        <!-- Bouton pour changer la couleur du thème -->
+        <form method="post" action="theme.php">
+          <label class="switch">
+            <input type="checkbox" name="theme" value="sombre">
+            <span class="curseur"></span>
+          </label>
+          <!-- Bouton pour soumettre le formulaire -->
+          <button type="submit" value="Envoyer">VALIDER THEME</button> 
+        </form>
+
         <?php
         }
         ?>
