@@ -142,7 +142,7 @@ foreach($resultmessages as $val){
 
             echo "
             
-            <a style='border:solid 3px white; padding:4px; border=5px; border-radius:3px;' href='supprimmer.php?identifiant=".$val['Id']."'>Supprimmer</a>
+            <a class='liensuppr' style='border:solid 3px white; padding:4px; border=5px; border-radius:3px;' href='supprimmer.php?identifiant=".$val['Id']."'>Supprimmer</a>
             
             
             
