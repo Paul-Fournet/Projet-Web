@@ -5,6 +5,13 @@ require("fonctions.php");
 
 //L'utilisateur n'est pas connecté
 $_SESSION['connected']=false;
+
+// Cherche si l'utilisateur a deja une préference pour le thème.
+
+if ( isset($_COOKIE['User_Pref'])){ // si le cookie existe (isset)
+    $style=$_COOKIE['User_Pref'];	// on récupère le theme choisi enregistré dans le cookie
+}
+else $style="clair"; // valeur par défaut
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +22,7 @@ $_SESSION['connected']=false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
     <link rel="stylesheet" href="formstyle.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="footer<?php echo "_$style"; ?>.css" />
 
 </head>
 

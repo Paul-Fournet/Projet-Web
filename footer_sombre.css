@@ -1,0 +1,67 @@
+/* Ce style s'applique au footer de toutes les pages du site*/
+
+footer {
+    color: white;
+    background-color: white;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-style: solid;
+    border-color: white;
+    padding: 0px;
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* Permet de réalisé un dégradé de couleur pour le fond de la page*/
+    background: black;
+    align-items: center;
+    height: 150px;
+  }
+  
+  footer div h2 {
+    position: relative;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    top: 5%;
+  }
+  
+  footer a,
+  footer .contacter p {
+    color: white;
+    text-decoration: None;
+    font-family: "Sofia Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+  }
+  
+  /* Gère l'affichage des icones pour les réseaux sociaux*/
+  .links .icon {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  .links .icon:hover {
+    color: #4d4f55;
+    background-color: white;
+  }
+  .footer-col h2 {
+    position: relative;
+    margin-bottom: 10px;
+  
+    text-transform: capitalize;
+    top: -7px;
+  }
+  
